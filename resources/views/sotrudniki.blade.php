@@ -16,7 +16,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>{{$sotr[0]->name}}</title>
+    <title></title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -54,26 +54,15 @@ a
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h1>I am {{$sotr[0]['name']}}</h1>
-        <p>It's my first Laravel project! I am {{$sotr[0]['position']}}</p>
+    dsfsdf
+
         <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
 
 <div class="container">
     <!-- Example row of columns -->
-    <div class="row">
-       @foreach($sotr as $value)
-        <div class="col-md-4">
-            <h2>{{$value->position}}</h2>
-            <p>{{$value->datestart}}</p>
-            <p><a class="btn btn-default" href="/sotr/{{$value->id}}" role="button">View details &raquo;</a></p>
-            <li>dasdas
-                <li>asdafasgf</li>
-            </li>
 
-        </div>
-        @endforeach
     </div>
 
     <hr>

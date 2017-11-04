@@ -17,44 +17,19 @@ class PossController extends Controller
     function editPoss(){
 
        Employee::fixTree();
-        $sotr  =  Employee::get()->toTree();
-        //print_r($sotr);
-       /* $boss=[];
-        $podchin=[];
-       $sotri=Employee::all();
-    //print_r($sotri);
-        $sotr = $sotri->unique('boss');
-		
-        //$groop=$sotr->groupBy('bossid');
-
-        foreach ($sotri as $val){
-            $boss[$val->boss][]=$sotri->get('boss', $val->name);
-            //echo $val->bossid.'<br>';
-		
-        }
-
-       // print_r($boss);
-    //array_shift($boss);
-	foreach ($boss as $k=>$value){
-        echo '..-'.$k.'<br>';
-            foreach ($value as $key=>$v){
-
-	    		echo ' ----: '.$v.'<br>';
-		    	$myboss[$k][]=$v;
-
-	
-		}
-		echo '<br>';
-
-	}
+        $sotr  =  Employee::get()->toTree();//json для построения дерева
 
 
-
-
-        
-        print_r($boss);
+       $arrColl=$sotr->toArray();
+     /*   echo "<pre>";
+       print_r($arrColl);
+        echo "</pre>";
 */
+        $sotr=str_replace('name', 'text', $sotr);
 
+        $fp=fopen($_SERVER['DOCUMENT_ROOT'].'/tsconfig.json', "w");
+        fwrite($fp, $sotr);
+        fclose($fp);
 
 
         return view('newvi', compact('sotr'));

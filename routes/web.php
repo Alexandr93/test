@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/',array('as'=>'jquery.treeview','uses'=>'PossController@editPoss'));
-
+Route::get('/crud', 'CrudController@viewAllExployees')->name('crud');

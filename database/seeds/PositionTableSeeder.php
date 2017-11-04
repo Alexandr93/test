@@ -28,7 +28,7 @@ class PositionTableSeeder extends Seeder
         )
         );
 
-        for ($i=2; $i<200; $i++){
+        for ($i=2; $i<500; $i++){
          $rand=rand(2, DB::table('positions')->count());//случайное число по количеству записей в таблице
                                                         //2 потому что 1 сотрудник всегда ген директор, который может быть только один
 

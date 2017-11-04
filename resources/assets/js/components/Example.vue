@@ -6,7 +6,8 @@
                     <div class="panel-heading">Example Component</div>
 
                     <div class="panel-body">
-                        I'm an example component!
+                        <div id="tree"></div>
+                        safdas
                     </div>
                 </div>
             </div>
@@ -15,9 +16,48 @@
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+   $(document).ready(function () {
+           $('#tree').jstree({
+               'core': {
+                   "check_callback": true,
+                   'data': {
+                       'url': "/tsconfig.json",
+                       "data": function (node) {
+                           return {'id': node.id};
+                       }
+                       // "check_callback" : true
+                   }
+               },
+               "massload": {
+                   "url": "/tsconfig.json",
+                   "data": function (nodes) {
+                       return {"ids": nodes.join("0")};
+                   }
+               },
+
+               "plugins": ["contextmenu", "dnd", "massload"]
+           });
+
+           /*
+                       'core': {
+                           'data': {
+                               'url': function (node) {
+                                   return '/tsconfig.json';
+                               },
+
+                               'data': function (node) {
+                                   return {
+                                       parentId: node.id === "#" ? 0 : node.id,
+                                       searchdepth: 1
+                                   }
+                               },
+                               'success': function (data) {
+                                   return data.list
+                               }
+                           },
+                           'check_callback': true,
+                       },
+                       "plugins": ["json_data", "contextmenu" ,"dnd"]
+                   })*/
+       });
 </script>
